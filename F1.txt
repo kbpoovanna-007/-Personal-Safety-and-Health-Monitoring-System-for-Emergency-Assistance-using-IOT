@@ -1,0 +1,46 @@
+1. Include necessary libraries:
+    a. Include Arduino.h for general Arduino functionality.
+    b. Include ESP8266WiFi.h for WiFi connectivity.
+    c. Include ESP_Mail_Client.h for SMTP email functionality.
+
+2. Define constants and variables:
+    a. WIFI_SSID: SSID of the WiFi network.
+    b. WIFI_PASSWORD: Password of the WiFi network.
+    c. SMTP_HOST: SMTP server hostname (e.g., "smtp.gmail.com").
+    d. SMTP_PORT: SMTP server port number (e.g., 465 for SSL).
+    e. AUTHOR_EMAIL: Sender's email address.
+    f. AUTHOR_PASSWORD: Application-specific password for the sender's email.
+    g. RECIPIENT_EMAIL: Recipient's email address.
+    h. smtp: SMTP session object.
+
+3. Define smtpCallback function:
+    a. This function is called to handle SMTP status.
+    b. It prints the current status and sending result.
+
+4. Setup function:
+    a. Initialize serial communication.
+    b. Connect to the WiFi network using the provided SSID and password.
+    c. Initialize ESP Mail Client debug mode.
+    d. Set up SMTP session callback function.
+    e. Configure session configuration with SMTP server details, login credentials, and NTP server information.
+    f. Configure the email message:
+        i. Set sender's name and email address.
+        ii. Set email subject.
+        iii. Add recipient's email address.
+        iv. Set email content (plain text).
+        v. Set priority and notification preferences.
+    g. Connect to the SMTP server.
+    h. If connection is successful:
+        i. Check if authentication is successful.
+        ii. Send the email.
+    i. Handle any errors that occur during the email sending process.
+
+5. Loop function:
+    a. Since the loop function is empty, it does not contain any specific logic and remains idle.
+
+6. smtpCallback function:
+    a. This function is called to handle SMTP status.
+    b. It prints the current status and sending result.
+
+7. Error handling:
+    a. Error handling is integrated into the setup function, where it checks for connection and authentication errors during the email sending process.

@@ -1,0 +1,45 @@
+1. Include necessary libraries:
+    a. Include Arduino.h for general Arduino functionality.
+    b. Include ESP8266WiFi.h for WiFi connectivity.
+    c. Include ESP_Mail_Client.h for SMTP email functionality.
+
+2. Define constants and variables:
+    a. WIFI_SSID: SSID of the WiFi network.
+    b. WIFI_PASSWORD: Password of the WiFi network.
+    c. SMTP_HOST: SMTP server hostname (e.g., "smtp.gmail.com").
+    d. SMTP_PORT: SMTP server port number (e.g., 465 for SSL).
+    e. AUTHOR_EMAIL: Sender's email address.
+    f. AUTHOR_PASSWORD: Application-specific password for the sender's email.
+    g. RECIPIENT_EMAIL: Recipient's email address.
+    h. smtp: SMTP session object.
+    i. buttonPin: Pin number to which the button is connected.
+    j. buttonState: Current state of the button.
+    k. lastButtonState: Previous state of the button.
+
+3. Define smtpCallback function:
+    a. This function is called to handle SMTP status.
+    b. It prints the current status and sending result.
+
+4. Setup function:
+    a. Initialize serial communication.
+    b. Connect to the WiFi network using the provided SSID and password.
+    c. Print connection status and IP address.
+    d. Set up SMTP session configuration with SMTP server details and login credentials.
+
+5. Loop function:
+    a. Read the state of the button.
+    b. If the button is pressed, call the sendEmergencyEmail function.
+
+6. sendEmergencyEmail function:
+    a. Declare the email message.
+    b. Set message headers, sender, recipient, subject, and email body.
+    c. Connect to the SMTP server.
+    d. If connection is successful, start sending the email.
+    e. Handle any errors that occur during the email sending process.
+
+7. smtpCallback function:
+    a. This function is called to handle SMTP status.
+    b. It prints the current status and sending result.
+
+8. Error handling:
+    a. Error handling is integrated into the sendEmergencyEmail function, where it checks for connection errors during the email sending process.

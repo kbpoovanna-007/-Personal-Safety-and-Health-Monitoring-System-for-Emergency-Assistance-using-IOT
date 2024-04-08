@@ -1,0 +1,35 @@
+1. Include necessary libraries:
+    a. TinyGPS++ for GPS parsing.
+    b. SoftwareSerial for serial communication with GPS module.
+    c. ThingSpeak library for sending data to ThingSpeak.
+    d. ESP8266WiFi library for WiFi connectivity.
+
+2. Define constants and variables:
+    a. APIkey: The ThingSpeak API key for sending data.
+    b. channelNumber: The ThingSpeak channel number.
+    c. RXPin: The pin connected to the GPS module's RX pin.
+    d. TXPin: The pin connected to the GPS module's TX pin.
+    e. GPSBaud: Baud rate for GPS communication.
+    f. latitude, longitude: Variables to store GPS coordinates.
+    g. lat_str, lng_str: Strings to store formatted latitude and longitude.
+
+3. Setup the software serial and GPS object:
+    a. Initialize a SoftwareSerial object with RXPin and TXPin.
+    b. Initialize a TinyGPS++ object named "gps".
+
+4. Inside the loop function:
+    a. Check if there are bytes available to read from the serial port.
+    b. If bytes are available:
+        i. Parse the incoming GPS data using gps.encode().
+        ii. If a valid GPS fix is obtained:
+            A. Retrieve latitude and longitude information.
+            B. Format latitude and longitude as strings.
+            C. Print latitude and longitude to serial monitor.
+            D. Set the fields in ThingSpeak with latitude and longitude data.
+            E. Write fields to ThingSpeak channel.
+            F. Delay for 1 second.
+            G. Print a newline character to serial monitor.
+
+5. Error handling:
+    a. No error handling is provided in the given code snippet. It's recommended to include error handling mechanisms, such as checking for GPS validity, WiFi connectivity, and ThingSpeak write success.
+
